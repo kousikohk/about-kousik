@@ -80,6 +80,18 @@
         footer a:hover {
             text-decoration: underline;
         }
+        /* Additional CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease;
+        }
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #222;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -178,5 +190,16 @@
     </footer>
 
     <script src="scripts.js"></script>
+    <script>
+        // JavaScript for dark mode toggle
+        const body = document.body;
+        const darkModeToggle = document.createElement('button');
+        darkModeToggle.textContent = 'Toggle Dark Mode';
+        darkModeToggle.classList.add('dark-mode-toggle');
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+        document.body.appendChild(darkModeToggle);
+    </script>
 </body>
 </html>
