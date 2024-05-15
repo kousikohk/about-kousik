@@ -12,6 +12,7 @@
             margin: 0;
             padding: 0;
             background-color: #f8f8f8;
+            transition: background-color 0.3s ease;
         }
         header {
             background-color: #333;
@@ -80,17 +81,40 @@
         footer a:hover {
             text-decoration: underline;
         }
-        /* Additional CSS styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s ease;
-        }
+
         /* Dark mode styles */
         body.dark-mode {
             background-color: #222;
             color: #fff;
+        }
+
+        /* Media Queries for Mobile View */
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 28px;
+            }
+            header h2 {
+                font-size: 16px;
+            }
+            header p {
+                font-size: 12px;
+            }
+            nav ul li a {
+                font-size: 14px;
+            }
+            section h2 {
+                font-size: 20px;
+            }
+            section p,
+            section ul {
+                font-size: 14px;
+            }
+            footer p {
+                font-size: 12px;
+            }
+            footer a {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
