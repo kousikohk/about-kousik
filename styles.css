@@ -43,7 +43,7 @@ header nav ul li a {
 }
 
 header nav ul li a::after {
-    content: ' >';
+    content: '';
     display: inline-block;
     margin-left: 0.5rem;
     transition: transform 0.3s;
