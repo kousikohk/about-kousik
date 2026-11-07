@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hari Krishna Kousik Ogirala - One-Page Consulting Profile</title>
+    <style>
+        :root {
+            --ink: #0f172a;
+            --muted: #334155;
+            --accent: #1d4ed8;
+            --line: #cbd5e1;
+            --bg: #f8fafc;
+            --card: #ffffff;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+        }
+
+        .sheet {
+            width: min(920px, 94%);
+            margin: 24px auto;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 28px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .headline {
+            margin: 6px 0 4px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 0.92rem;
+            margin: 0 0 16px;
+        }
+
+        h2 {
+            margin: 20px 0 8px;
+            font-size: 1.05rem;
+            color: #1e3a8a;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 6px;
+        }
+
+        p {
+            margin: 0 0 10px;
+            line-height: 1.55;
+        }
+
+        ul {
+            margin: 6px 0 0;
+            padding-left: 18px;
+        }
+
+        li {
+            margin: 6px 0;
+            color: var(--muted);
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chip {
+            border: 1px solid #bfdbfe;
+            background: #eff6ff;
+            color: #1e3a8a;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 0.84rem;
+            font-weight: 600;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .print-note {
+            width: min(920px, 94%);
+            margin: 0 auto 18px;
+            color: #475569;
+            font-size: 0.88rem;
+        }
+
+        @media (max-width: 780px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+            .sheet {
+                width: 100%;
+                border: 0;
+                border-radius: 0;
+                margin: 0;
+                padding: 0;
+            }
+            .print-note {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sheet">
+        <h1>Hari Krishna Kousik Ogirala</h1>
+        <p class="headline">Salesforce Architect | Application, Integration, and Delivery Architecture</p>
+        <p class="meta">
+            Hyderabad, India | <a href="mailto:kousikohk@gmail.com">kousikohk@gmail.com</a> |
+            <a href="tel:+918951050900">+91 89510 50900</a> |
+            <a href="https://www.linkedin.com/in/hari-krishna-kousik-o-9187b417" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </p>
+
+        <h2>Consulting Snapshot</h2>
+        <p>
+            11+ years delivering enterprise Salesforce programs across telecom, public sector, and healthcare-style service environments.
+            Experienced in architecture design, Lightning migration, integration programs, and release governance under tight timelines.
+        </p>
+
+        <h2>Freelance Services</h2>
+        <ul>
+            <li>Architecture assessments for Salesforce org health, scalability, and technical debt.</li>
+            <li>Lightning migration (Classic to LEX), Aura-to-LWC modernization, and performance tuning.</li>
+            <li>Integration architecture for REST/SOAP, middleware, and legacy modernization use cases.</li>
+            <li>Hands-on build support in Apex, LWC, CI/CD, managed packages, and release strategy.</li>
+        </ul>
+
+        <div class="grid">
+            <section>
+                <h2>Selected Capabilities</h2>
+                <ul>
+                    <li><strong>Lightning migration</strong> — Classic to LEX, Aura-to-LWC rewrite, Flow redesign, phased cutover.</li>
+                    <li><strong>CRM modernization</strong> — Enterprise Salesforce replacement, configuration, integrations, multi-team release.</li>
+                    <li><strong>Contact-center platforms</strong> — Experience Cloud portals, API integrations, agent workflow automation.</li>
+                    <li><strong>Citizen services</strong> — 311-style case intake, SLA routing, Flows, and third-party integrations.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Core Stack</h2>
+                <div class="chips">
+                    <span class="chip">Apex</span>
+                    <span class="chip">LWC</span>
+                    <span class="chip">Aura</span>
+                    <span class="chip">Visualforce</span>
+                    <span class="chip">JavaScript</span>
+                    <span class="chip">REST / SOAP</span>
+                    <span class="chip">SFDX</span>
+                    <span class="chip">Data Loader CLI</span>
+                    <span class="chip">CI/CD</span>
+                    <span class="chip">CPQ</span>
+                </div>
+
+                <h2>Certifications</h2>
+                <ul>
+                    <li>Salesforce Certified Application Architect</li>
+                    <li>Salesforce Certified Integration Architect</li>
+                    <li>Salesforce Certified Development Lifecycle and Deployment Architect</li>
+                    <li>Salesforce Certified CPQ Specialist</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <p class="print-note">Tip: Open this page and use browser print -> Save as PDF for a PDF handout.</p>
+</body>
+</html>
