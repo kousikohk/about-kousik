@@ -3,217 +3,601 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HARI KRISHNA KOUSIK OGIRALA - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Hari Krishna Kousik Ogirala — Technical Architect specializing in Salesforce platforms, integrations, and agentic AI solutions.">
+    <title>Kousik Ogirala — Technical Architect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Additional CSS styles */
+        :root {
+            --ink: #0c1f1a;
+            --ink-soft: #243a33;
+            --muted: #5a6f67;
+            --paper: #f3efe6;
+            --line: rgba(12, 31, 26, 0.12);
+            --accent: #0f6e56;
+            --accent-deep: #0a4f3d;
+            --glow: #c8e6d8;
+            --white: #fffdf8;
+            --font-display: "Instrument Serif", Georgia, serif;
+            --font-body: "Manrope", sans-serif;
+            --max: 1120px;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
-            transition: background-color 0.3s ease;
+            font-family: var(--font-body);
+            color: var(--ink);
+            background: var(--paper);
+            line-height: 1.55;
         }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
+        img { max-width: 100%; display: block; }
+        a { color: inherit; }
+
+        .site-nav {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 40;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px clamp(20px, 4vw, 48px);
+            background: linear-gradient(to bottom, rgba(243, 239, 230, 0.92), rgba(243, 239, 230, 0));
+            backdrop-filter: blur(8px);
         }
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-        }
-        header h2 {
-            margin: 5px 0;
-            font-size: 18px;
-        }
-        header p {
-            margin: 5px 0;
-            font-size: 14px;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 20px 0;
-            text-align: center;
-        }
-        nav ul li {
-            display: inline-block;
-            margin: 0 10px;
-        }
-        nav ul li a {
-            color: #333;
+        .mark {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            letter-spacing: 0.02em;
             text-decoration: none;
-            font-size: 16px;
         }
-        main {
-            padding: 20px;
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+            font-size: 0.88rem;
+            font-weight: 600;
         }
-        section {
-            margin-bottom: 40px;
+        .nav-links a {
+            text-decoration: none;
+            color: var(--ink-soft);
+            opacity: 0.85;
+            transition: opacity 0.2s ease, color 0.2s ease;
         }
-        section h2 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 10px;
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
+        .nav-cta {
+            background: var(--ink);
+            color: var(--white) !important;
+            padding: 8px 14px;
+            border-radius: 999px;
+            opacity: 1 !important;
         }
-        section p,
-        section ul {
-            color: #666;
-            font-size: 16px;
+        .nav-cta:hover { background: var(--accent-deep); color: var(--white) !important; }
+
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            align-items: end;
+            padding: 120px clamp(20px, 4vw, 48px) 56px;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse 70% 55% at 78% 20%, rgba(15, 110, 86, 0.22), transparent 60%),
+                radial-gradient(ellipse 50% 40% at 12% 80%, rgba(200, 230, 216, 0.55), transparent 55%),
+                linear-gradient(160deg, #e7efe9 0%, var(--paper) 42%, #ddd4c4 100%);
         }
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(12, 31, 26, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(12, 31, 26, 0.035) 1px, transparent 1px);
+            background-size: 56px 56px;
+            mask-image: linear-gradient(to bottom, black 30%, transparent 95%);
+            pointer-events: none;
+            animation: drift 28s linear infinite;
+        }
+        @keyframes drift {
+            from { transform: translateY(0); }
+            to { transform: translateY(-56px); }
+        }
+        .hero-inner {
+            width: min(var(--max), 100%);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: clamp(28px, 5vw, 64px);
+            align-items: end;
+        }
+        .eyebrow {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 0 0 14px;
+            opacity: 0;
+            animation: rise 0.8s ease 0.1s forwards;
+        }
+        .hero h1 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: clamp(3.2rem, 8vw, 5.6rem);
+            line-height: 0.95;
+            margin: 0 0 18px;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            animation: rise 0.9s ease 0.2s forwards;
+        }
+        .hero-lead {
+            font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+            color: var(--ink-soft);
+            max-width: 34ch;
+            margin: 0 0 28px;
+            opacity: 0;
+            animation: rise 0.9s ease 0.35s forwards;
+        }
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            opacity: 0;
+            animation: rise 0.9s ease 0.5s forwards;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.92rem;
+            padding: 12px 18px;
+            border-radius: 999px;
+            transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+        .btn-primary:hover { background: var(--accent-deep); }
+        .btn-ghost {
+            border: 1px solid var(--line);
+            background: rgba(255, 253, 248, 0.55);
+            color: var(--ink);
+        }
+        .portrait-wrap {
+            justify-self: end;
+            width: min(360px, 100%);
+            position: relative;
+            opacity: 0;
+            animation: rise 1s ease 0.45s forwards;
+        }
+        .portrait-wrap::after {
+            content: "";
+            position: absolute;
+            inset: 18% -8% -8% 18%;
+            background: var(--glow);
+            z-index: 0;
+            border-radius: 28px;
+            transform: rotate(3deg);
+        }
+        .portrait {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 28px;
+            filter: saturate(0.92) contrast(1.04);
+        }
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            width: min(var(--max), calc(100% - 40px));
+            margin: 0 auto;
+            padding: 72px 0;
+        }
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin: 0 0 10px;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            line-height: 1.1;
+            margin: 0 0 18px;
+            max-width: 18ch;
+        }
+        .section-copy {
+            margin: 0;
+            color: var(--muted);
+            max-width: 62ch;
+            font-size: 1.02rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: start;
+            margin-top: 36px;
+        }
+        .about-points {
+            display: grid;
+            gap: 16px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .about-points li {
+            padding: 16px 0;
+            border-top: 1px solid var(--line);
+            font-size: 1rem;
+            color: var(--ink-soft);
+        }
+        .about-points li strong {
+            display: block;
+            color: var(--ink);
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .work-list {
+            margin-top: 40px;
+            display: grid;
+            gap: 0;
+            border-top: 1px solid var(--line);
+        }
+        .work-item {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 24px;
+            padding: 28px 0;
+            border-bottom: 1px solid var(--line);
+            transition: background 0.25s ease, padding 0.25s ease;
+        }
+        .work-item:hover {
+            background: rgba(15, 110, 86, 0.04);
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+        .work-year {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--muted);
+            padding-top: 6px;
+        }
+        .work-item h3 {
+            margin: 0 0 6px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .work-item .company {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.92rem;
+            margin-bottom: 8px;
+        }
+        .work-item p {
+            margin: 0;
+            color: var(--muted);
+            max-width: 70ch;
+        }
+
+        .band {
+            background: var(--ink);
+            color: var(--white);
+            padding: 72px 0;
+            margin-top: 20px;
+        }
+        .band .section { padding: 0; }
+        .band .section-label { color: #8fd6b8; }
+        .band .section-copy { color: rgba(255, 253, 248, 0.72); }
+        .pill-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 28px;
+        }
+        .pill {
+            border: 1px solid rgba(255, 253, 248, 0.18);
+            background: rgba(255, 253, 248, 0.06);
+            padding: 10px 14px;
+            border-radius: 999px;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .domain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 36px;
+        }
+        .domain {
+            padding: 22px 20px 24px;
+            border-top: 2px solid var(--accent);
+            background: linear-gradient(180deg, rgba(15, 110, 86, 0.06), transparent 70%);
+        }
+        .domain h3 {
+            margin: 0 0 8px;
+            font-size: 1.05rem;
+        }
+        .domain p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .contact-panel {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 32px;
+            align-items: end;
+            margin-top: 36px;
+            padding-top: 28px;
+            border-top: 1px solid var(--line);
+        }
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px 22px;
+            font-weight: 700;
+        }
+        .contact-links a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+        .contact-links a:hover { border-bottom-color: var(--accent); }
+
         footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-        }
-        footer p {
-            margin: 0;
-            font-size: 14px;
-        }
-        footer a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        footer a:hover {
-            text-decoration: underline;
+            padding: 28px clamp(20px, 4vw, 48px) 40px;
+            color: var(--muted);
+            font-size: 0.88rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            border-top: 1px solid var(--line);
+            width: min(var(--max), calc(100% - 40px));
+            margin: 0 auto;
         }
 
-        /* Dark mode styles */
-        body.dark-mode {
-            background-color: #222;
-            color: #fff;
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        /* Media Queries for Mobile View */
-        @media screen and (max-width: 768px) {
-            header h1 {
-                font-size: 28px;
-            }
-            header h2 {
-                font-size: 16px;
-            }
-            header p {
-                font-size: 12px;
-            }
-            nav ul li a {
-                font-size: 14px;
-            }
-            section h2 {
-                font-size: 20px;
-            }
-            section p,
-            section ul {
-                font-size: 14px;
-            }
-            footer p {
-                font-size: 12px;
-            }
-            footer a {
-                font-size: 12px;
-            }
+        @media (max-width: 900px) {
+            .hero-inner,
+            .about-grid,
+            .contact-panel,
+            .domain-grid { grid-template-columns: 1fr; }
+            .portrait-wrap { justify-self: start; width: min(280px, 100%); }
+            .work-item { grid-template-columns: 1fr; gap: 6px; }
+            .nav-links a:not(.nav-cta) { display: none; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="profile.jpg" alt="HARI KRISHNA KOUSIK OGIRALA" class="profile-img" valign ="left">
-        <h1>HARI KRISHNA KOUSIK OGIRALA</h1>
-        <h2>Salesforce Certified Application Architect - An aspiring CTA</h2>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <!--<li><a href="#projects">Projects</a></li>-->
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <nav class="site-nav" aria-label="Primary">
+        <a class="mark" href="#top">Kousik Ogirala</a>
+        <div class="nav-links">
+            <a href="#work">Work</a>
+            <a href="#practice">Practice</a>
+            <a href="#domains">Domains</a>
+            <a class="nav-cta" href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="top">
+        <div class="hero-inner">
+            <div>
+                <p class="eyebrow">Technical Architect</p>
+                <h1>Kousik<br>Ogirala</h1>
+                <p class="hero-lead">
+                    Building Salesforce platforms, integrations, and agentic systems that teams can trust in production.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="./Kousik_Ogirala_Resume_Technical_Architect.pdf">View resume</a>
+                    <a class="btn btn-ghost" href="mailto:kousikohk@gmail.com">Say hello</a>
+                </div>
+            </div>
+            <div class="portrait-wrap">
+                <img class="portrait" src="profile.jpg" alt="Portrait of Hari Krishna Kousik Ogirala">
+            </div>
+        </div>
     </header>
-    
-    <main>
-        <section id="about">
-            <h2>Welcome to my world of Software Engineering</h2>
-            <p>Technical Architect with 12 years of experience and solid technical background. A programming geek having hands-on experience in designing and building highly scalable enterprise software</p>
-        </section>
-        <section id="certifications">
-            <h2>Certifications</h2>
-            <ul>
-                <li>Salesforce Certified Application Architect</li>
-                <li>Salesforce Certified Integration Architect</li>
-                <li>Salesforce Certified Development Lifecycle And Deployment Architect</li>
-                <li>Salesforce Certified Platform Developer I</li>
-                <li>Salesforce Certified CPQ Specialist</li>
-                <li>Salesforce Certified Admin</li>
-                <li>Salesforce Certified App Builder</li>
-                <li>Flosum Certified Professional</li>
-            </ul>
-        </section>
-        
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Salesforce Application Architecture</li>
-                <li>Integration Architecture</li>
-                <li>Deployment Architecture</li>
-                <li>Data Architecture</li>
-                <li>Middleware</li>
-                <li>J2SE, Lightning, Apex, Visualforce, Integrations, LWC, JavaScript, JQuery</li>
-                <li>SFDX, Managed Packages</li>
-            </ul>
-        </section>
-        
-        <section id="experience">
-            <h2>Experience</h2>
-            <ul>
-                <li>Senior Software Engineer (IRIS Software Group)</li>
-                <li>Dextara Datamatics (Formerly Dextara Digital Services India.)</li>
-                <li>Accenture Singapore</li>
-                <li>Equinix Singapore</li>
-                <li>Salesforce.com India</li>
-                <li>Capgemini India</li>
-                <li>Unisys India</li>
-            </ul>
-        </section>
-        
-        <!--<section id="projects">
-            <h2>Projects</h2>
-            <p></p>
-        </section>-->
-        
-        <section id="contact">
-            <h2>Contact</Menu></h2>
-            <form id="contactForm">
-                <label for="name"><b><i>Kousik Ogirala</i></b></label>
-                <label for="email"><b>Email:</b><a href="mailto:kousikohk@gmail.com">kousikohk@gmail.com</a></label>
-            </form>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2024 HARI KRISHNA KOUSIK OGIRALA</p>
-        <p>
-            <a href="https://www.linkedin.com/in/hari-krishna-kousik-ogirala-9187b417/" target="_blank">LinkedIn</a> | 
-            <a href="https://github.com/kousikohk" target="_blank">GitHub</a>
+
+    <section class="section" id="about">
+        <p class="section-label reveal">About</p>
+        <h2 class="section-title reveal">Architecture with delivery depth</h2>
+        <p class="section-copy reveal">
+            Technical Architect at Salesforce.com with 12+ years across enterprise CRM, integration, and platform engineering.
+            From Dreamforce-stage Agentforce programs to internal developer tooling, the focus is the same:
+            clear design, reliable release, and solutions people actually use.
         </p>
+        <div class="about-grid">
+            <ul class="about-points reveal">
+                <li>
+                    <strong>Agentforce &amp; AI systems</strong>
+                    Agentic loops, multi-agent orchestration, token optimization, and adoption tracking for real teams.
+                </li>
+                <li>
+                    <strong>Platform modernization</strong>
+                    Revenue Cloud Advanced migrations, Industries Cloud patterns, ITSM, and Lightning modernization.
+                </li>
+                <li>
+                    <strong>Internal engineering leverage</strong>
+                    Metadata tooling, mock callout frameworks, Slack MCP with Cursor, and Playwright-based automation.
+                </li>
+            </ul>
+            <div class="reveal">
+                <p class="section-copy" style="margin-bottom: 18px;">
+                    Previously delivered large programs across telecom, financial services, FMCG, and public-sector citizen services —
+                    including City of Philadelphia 311.
+                </p>
+                <a class="btn btn-ghost" href="./resume-google-application-engineer.html">Open full profile</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="work">
+        <p class="section-label reveal">Selected experience</p>
+        <h2 class="section-title reveal">Where the work happens</h2>
+        <div class="work-list">
+            <article class="work-item reveal">
+                <div class="work-year">2025 – Present</div>
+                <div>
+                    <h3>Technical Architect</h3>
+                    <div class="company">Salesforce.com</div>
+                    <p>
+                        Agentforce for ONZ (Zero Touch Switch, Dreamforce 2025), Revenue Cloud Advanced migration,
+                        Industries Cloud integration patterns, ITSM, and internal AI platform tooling.
+                    </p>
+                </div>
+            </article>
+            <article class="work-item reveal">
+                <div class="work-year">2024 – 2025</div>
+                <div>
+                    <h3>Senior Software Engineer</h3>
+                    <div class="company">IRIS Software Group</div>
+                    <p>Scaled Salesforce CRM, data, DevOps, and middleware practices for internal business applications.</p>
+                </div>
+            </article>
+            <article class="work-item reveal">
+                <div class="work-year">2024</div>
+                <div>
+                    <h3>Architect</h3>
+                    <div class="company">Dextara Datamatics</div>
+                    <p>Fundpanel Lightning migration and pre-sales solution architecture for prospective engagements.</p>
+                </div>
+            </article>
+            <article class="work-item reveal">
+                <div class="work-year">2020 – 2024</div>
+                <div>
+                    <h3>Business &amp; Integration Architecture Specialist</h3>
+                    <div class="company">Accenture</div>
+                    <p>Enterprise Salesforce programs for Unilever, SCB, Maxis, and ONE — sales automation, service ops, and integrations.</p>
+                </div>
+            </article>
+            <article class="work-item reveal">
+                <div class="work-year">2013 – 2020</div>
+                <div>
+                    <h3>Earlier roles</h3>
+                    <div class="company">Equinix · Salesforce · Capgemini · Unisys</div>
+                    <p>Platform delivery, customer success leadership, and public-sector Service Cloud implementations.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="band" id="practice">
+        <div class="section">
+            <p class="section-label reveal">Practice</p>
+            <h2 class="section-title reveal" style="color: var(--white); max-width: 16ch;">Craft across the stack</h2>
+            <p class="section-copy reveal">
+                Salesforce certified across Application, Integration, and Deployment Architecture —
+                with hands-on build skills in Apex, LWC, and modern delivery tooling.
+            </p>
+            <div class="pill-grid reveal">
+                <span class="pill">Sales / Service / Experience Cloud</span>
+                <span class="pill">CPQ · Revenue Cloud</span>
+                <span class="pill">Apex · LWC · JavaScript</span>
+                <span class="pill">REST / SOAP · Middleware</span>
+                <span class="pill">SFDX · CI/CD · Flosum</span>
+                <span class="pill">Agentforce · Agentic loops</span>
+                <span class="pill">Playwright CLI</span>
+                <span class="pill">Slack MCP · Cursor</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="domains">
+        <p class="section-label reveal">Domains</p>
+        <h2 class="section-title reveal">Context that shapes solutions</h2>
+        <div class="domain-grid">
+            <div class="domain reveal">
+                <h3>Public sector</h3>
+                <p>Citizen service delivery, case intake, and agency workflows on Service Cloud.</p>
+            </div>
+            <div class="domain reveal">
+                <h3>Telecom</h3>
+                <p>Subscriber journeys, care operations, and Agentforce digital switch programs.</p>
+            </div>
+            <div class="domain reveal">
+                <h3>Financial services</h3>
+                <p>Contact-center and customer operations on Experience Cloud.</p>
+            </div>
+            <div class="domain reveal">
+                <h3>FMCG &amp; enterprise sales</h3>
+                <p>Large CRM replacement and supply-chain-adjacent process systems.</p>
+            </div>
+            <div class="domain reveal">
+                <h3>Internal IT</h3>
+                <p>ITSM, platform engineering, and release governance for host teams.</p>
+            </div>
+            <div class="domain reveal">
+                <h3>AI enablement</h3>
+                <p>Adoption dashboards, orchestration patterns, and practical change enablement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <p class="section-label reveal">Contact</p>
+        <h2 class="section-title reveal">Let’s build something solid</h2>
+        <p class="section-copy reveal">
+            Open to conversations about architecture, Agentforce, platform modernization, and engineering leadership.
+        </p>
+        <div class="contact-panel reveal">
+            <div class="contact-links">
+                <a href="mailto:kousikohk@gmail.com">kousikohk@gmail.com</a>
+                <a href="tel:+918951050900">+91 89510 50900</a>
+                <a href="https://www.linkedin.com/in/hari-krishna-kousik-o-9187b417" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/kousikohk" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+            <div>
+                <a class="btn btn-primary" href="./Kousik_Ogirala_Resume_Technical_Architect.pdf">Download resume</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span>© <span id="year"></span> Hari Krishna Kousik Ogirala</span>
+        <span>Hyderabad · Technical Architect</span>
     </footer>
 
-    <script src="scripts.js"></script>
     <script>
-        // JavaScript for dark mode toggle
-        const body = document.body;
-        const darkModeToggle = document.createElement('button');
-        darkModeToggle.textContent = 'Toggle Dark Mode';
-        darkModeToggle.classList.add('dark-mode-toggle');
-        darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-        });
-        document.body.appendChild(darkModeToggle);
+        document.getElementById("year").textContent = new Date().getFullYear();
+        const items = document.querySelectorAll(".reveal");
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+                if (e.isIntersecting) e.target.classList.add("in");
+            });
+        }, { threshold: 0.12 });
+        items.forEach((el) => io.observe(el));
     </script>
 </body>
 </html>
